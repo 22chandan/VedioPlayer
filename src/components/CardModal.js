@@ -4,7 +4,7 @@ import { Modal } from 'antd';
 const CardModal = ({ visible, card, handleCancel }) => {
   return (
     <Modal
-      visible={visible}
+      open={visible}
       title={card.name}
       onCancel={handleCancel}
       footer={null}

@@ -5,50 +5,50 @@ export const UPDATE_CARD = 'UPDATE_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const FETCH_CARDS = 'FETCH_CARDS';
 
-export const addCard = (bucketId, card) => {
-  return dispatch => {
-    axios.post(`/api/buckets/${bucketId}/cards`, card)
-      .then(response => {
-        dispatch({
-          type: ADD_CARD,
-          payload: response.data
-        });
-      });
-  };
+export const addCard = async (bucketId, card) => {
+  try {
+    const response = await axios.post(`/api/buckets/${bucketId}/cards`, card);
+    return {
+      type: ADD_CARD,
+      payload: response.data
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const updateCard = (bucketId, card) => {
-  return dispatch => {
-    axios.put(`/api/buckets/${bucketId}/cards/${card.id}`, card)
-      .then(response => {
-        dispatch({
-          type: UPDATE_CARD,
-          payload: response.data
-        });
-      });
-  };
+export const updateCard = async (bucketId, card) => {
+  try {
+    const response = await axios.put(`/api/buckets/${bucketId}/cards/${card.id}`, card);
+    return {
+      type: UPDATE_CARD,
+      payload: response.data
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const deleteCard = (bucketId, cardId) => {
-  return dispatch => {
-    axios.delete(`/api/buckets/${bucketId}/cards/${cardId}`)
-      .then(() => {
-        dispatch({
-          type: DELETE_CARD,
-          payload: cardId
-        });
-      });
-  };
+export const deleteCard = async (bucketId, cardId) => {
+  try {
+    await axios.delete(`/api/buckets/${bucketId}/cards/${cardId}`);
+    return {
+      type: DELETE_CARD,
+      payload: cardId
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const fetchCards = (bucketId) => {
-  return dispatch => {
-    axios.get(`/api/buckets/${bucketId}/cards`)
-      .then(response => {
-        dispatch({
-          type: FETCH_CARDS,
-          payload: response.data
-        });
-      });
-  };
+export const fetchCards = async (bucketId) => {
+  try {
+    const response = await axios.get(`/api/buckets/${bucketId}/cards`);
+    return {
+      type: FETCH_CARDS,
+      payload: response.data
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };

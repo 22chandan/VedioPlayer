@@ -13,7 +13,7 @@ export const CardList = ({ cards, bucket, onCardEdit, onCardDelete }) => {
         renderItem={(card) => (
           <Card
             card={card}
-            onEdit={onCardEdit}
+            onMove={onCardEdit}
             onDelete={onCardDelete}
           />
         )}

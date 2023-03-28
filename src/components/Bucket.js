@@ -25,7 +25,9 @@ export const Bucket = ({ bucket }) => {
           </button>
         </div>
       </div>
-      <CardList bucketId={bucket.id} />
+      <CardList bucketId={bucket.id}/>
     </div>
   );
 };
+
+export default Bucket;

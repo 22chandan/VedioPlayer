@@ -24,7 +24,7 @@ export const BucketForm = ({ visible, onCreate, onCancel }) => {
 
   return (
     <Modal
-      visible={visible}
+      open={visible}
       title="Create a new bucket"
       okText="Create"
       onCancel={onCancel}

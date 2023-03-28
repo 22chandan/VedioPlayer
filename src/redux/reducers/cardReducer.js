@@ -2,15 +2,20 @@ import { ADD_CARD, EDIT_CARD, DELETE_CARD, MOVE_CARD } from "../actions/actionTy
 
 const initialState = {
   cards: [
-  {
-    "id": 1,
-    "name": "Sample Card",
-    "link": "https://www.example.com/video.mp4",
-    "onDelete": "function() { console.log('Delete function'); }",
-    "onMove": "function() { console.log('Move function'); }"
-  }
+    {
+      id: 1,
+      name: "Sample Card",
+      link: "https://www.example.com/video.mp4",
+      onDelete: () => {
+        console.log("Delete function");
+      },
+      onMove: () => {
+        console.log("Move function");
+      }
+    }
   ]
 };
+
 
 const cardReducer = (state = initialState, action) => {
   switch (action.type) {
